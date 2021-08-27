@@ -4,7 +4,7 @@ export const Container = styled.div`
     overflow: visible;
     position: fixed;
     z-index: 10;
-    top: calc(50% - 100px);
+    top: calc(50% - 200px);
     bottom: 0;
     width: 500px;
     height: 400px;

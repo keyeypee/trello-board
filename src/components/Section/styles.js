@@ -11,7 +11,7 @@ export const Container = styled.div`
   border: 1px solid orange;
   position: relative;
   padding-bottom: 72px;
-  margin: 0 8px;
+  margin: 8px;
   overflow: visible;
   @media (max-width: 768px) {
     width: 100%;
@@ -53,6 +53,7 @@ export const CardContainer = styled.div`
   display: flex;
   flex-wrap: wrap;
   flex: 1;
+  min-height: 200px;
   @media (max-width: 768px) {
     width: 100%;
     flex-direction: column;

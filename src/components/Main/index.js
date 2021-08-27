@@ -4,7 +4,7 @@ import Section from "../Section";
 import Modal from '../Modal';
 import ListForm from "./ListForm";
 import CardForm from "./CardForm";
-import { Container, Heading, SectionContainer, Action } from "./styles";
+import { Container, Heading, SectionContainer, Action, Message } from "./styles";
 
 const Main = () => {
   const [state, setState] = useState({});
@@ -113,20 +113,24 @@ const Main = () => {
       <Action>
         <button onClick={onAddList}>Add List</button>
       </Action>
-      <SectionContainer>
-        {Object.keys(state).map((section) => (
-          <Section
-            key={section}
-            title={section}
-            name={section}
-            cards={state[section]}
-            onAdd={onAddCardToSection}
-            onRemove={onCardRemove}
-            onSectionRemove={onSectionRemove}
-            onCardDrop={onCardDrop}
-          />
-        ))}
-      </SectionContainer>
+      {Object.keys(state).length === 0 ? (
+        <Message>Please click on Add List button to create a new list</Message>
+      ) : (
+        <SectionContainer>
+          {Object.keys(state).map((section) => (
+            <Section
+              key={section}
+              title={section}
+              name={section}
+              cards={state[section]}
+              onAdd={onAddCardToSection}
+              onRemove={onCardRemove}
+              onSectionRemove={onSectionRemove}
+              onCardDrop={onCardDrop}
+            />
+          ))}
+        </SectionContainer>
+      )}
       {showSectionModal && <Modal show={showSectionModal} onClose={onSectionModalClose}>
           <ListForm onSectionFormSubmit={onSectionFormSubmit} listObj={state} />
         </Modal>
